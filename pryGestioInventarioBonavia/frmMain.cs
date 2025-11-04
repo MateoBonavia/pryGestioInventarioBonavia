@@ -12,6 +12,7 @@ namespace pryGestioInventarioBonavia
 {
     public partial class frmMain : Form
     {
+        clsConexion connection = new clsConexion();
         public frmMain()
         {
             InitializeComponent();
@@ -19,6 +20,7 @@ namespace pryGestioInventarioBonavia
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            connection.ConnectDb();
             changeTxt(false);
         }
 
