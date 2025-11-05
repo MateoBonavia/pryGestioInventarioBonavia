@@ -42,7 +42,6 @@ namespace pryGestioInventarioBonavia
             }
         }
 
-
         // ----------------------------------------------------------------------------------------------------
         // ---------------------------------- METODO PARA LLENAR EL COMBOBOX ----------------------------------
         // ----------------------------------------------------------------------------------------------------
@@ -74,7 +73,6 @@ namespace pryGestioInventarioBonavia
                 MessageBox.Show("Error al cargar la db: " + ex.Message);
             }
         }
-
 
         // ----------------------------------------------------------------------------------------------------
         // ---------------------------------- METODO PARA BUSCAR POR CODIGO -----------------------------------
@@ -122,8 +120,6 @@ namespace pryGestioInventarioBonavia
             }
         }
 
-
-
         // ----------------------------------------------------------------------------------------------------
         // ---------------------------------- METODO PARA BUSCAR POR NOMBRE -----------------------------------
         // ----------------------------------------------------------------------------------------------------
@@ -170,7 +166,6 @@ namespace pryGestioInventarioBonavia
             }
         }
 
-
         // ----------------------------------------------------------------------------------------------------
         // --------------------------------- METODO PARA BUSCAR POR CATEGORIA ---------------------------------
         // ----------------------------------------------------------------------------------------------------
@@ -188,8 +183,8 @@ namespace pryGestioInventarioBonavia
             {
                 dbCommand = new OleDbCommand();
                 dbCommand.Connection = dbConnection;
-                dbCommand.CommandText = "SELECT * FROM Productos WHERE Codigo = ?";
-                dbCommand.Parameters.AddWithValue("?", categoria);
+                dbCommand.CommandText = "SELECT * FROM Productos WHERE Categoria = ?";
+                dbCommand.Parameters.AddWithValue("?", Convert.ToInt32(categoria));
 
                 dataReader = dbCommand.ExecuteReader();
 
@@ -216,9 +211,6 @@ namespace pryGestioInventarioBonavia
                 dataReader.Close();
             }
         }
-
-
-
 
         // ----------------------------------------------------------------------------------------------------
         // ----------------------------------- METODO PARA AGREGAR PRODUCTOS ----------------------------------
@@ -252,6 +244,180 @@ namespace pryGestioInventarioBonavia
             catch (Exception ex)
             {
                 MessageBox.Show("Error al agregar el producto: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                dataReader.Close();
+            }
+        }
+
+        // ----------------------------------------------------------------------------------------------------
+        // ---------------------------- METODO PARA MODIFICAR PRODUCTOS POR CODIGO ----------------------------
+        // ----------------------------------------------------------------------------------------------------
+        public bool updateProductByCode(
+            String codigo,
+            Int32 cat,
+            String nombre,
+            decimal precio,
+            String stock,
+            String desc
+        )
+        {
+            try
+            {
+                dbCommand = new OleDbCommand();
+                dbCommand.Connection = dbConnection;
+                dbCommand.CommandText = "UPDATE Productos SET " +
+                                "Nombre = ?, " +
+                                "Categoria = ?, " +
+                                "Precio = ?, " +
+                                "Stock = ?, " +
+                                "Descripcion = ? " +
+                                "WHERE Codigo = ?";
+
+                dbCommand.Parameters.AddWithValue("?", nombre);
+                dbCommand.Parameters.AddWithValue("?", cat);
+                dbCommand.Parameters.AddWithValue("?", precio);
+                dbCommand.Parameters.AddWithValue("?", stock);
+                dbCommand.Parameters.AddWithValue("?", desc);
+                dbCommand.Parameters.AddWithValue("?", codigo);
+
+                int filasAfectadas = dbCommand.ExecuteNonQuery();
+
+                if (filasAfectadas > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al modificar el producto: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                dataReader.Close();
+            }
+        }
+
+        // ----------------------------------------------------------------------------------------------------
+        // ---------------------------- METODO PARA MODIFICAR PRODUCTOS POR NOMBRE ----------------------------
+        // ----------------------------------------------------------------------------------------------------
+        public bool updateProductByName(
+            String codigo,
+            Int32 cat,
+            String nombre,
+            decimal precio,
+            String stock,
+            String desc
+        )
+        {
+            try
+            {
+                dbCommand = new OleDbCommand();
+                dbCommand.Connection = dbConnection;
+                dbCommand.CommandText = "UPDATE Productos SET " +
+                                "Codigo = ?, " +
+                                "Categoria = ?, " +
+                                "Precio = ?, " +
+                                "Stock = ?, " +
+                                "Descripcion = ? " +
+                                "WHERE Nombre = ?";
+
+                dbCommand.Parameters.AddWithValue("?", codigo);
+                dbCommand.Parameters.AddWithValue("?", cat);
+                dbCommand.Parameters.AddWithValue("?", precio);
+                dbCommand.Parameters.AddWithValue("?", stock);
+                dbCommand.Parameters.AddWithValue("?", desc);
+                dbCommand.Parameters.AddWithValue("?", nombre);
+
+                int filasAfectadas = dbCommand.ExecuteNonQuery();
+
+                if (filasAfectadas > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al modificar el producto: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                dataReader.Close();
+            }
+        }
+
+        // ----------------------------------------------------------------------------------------------------
+        // ---------------------------- METODO PARA ELIMINAR PRODUCTOS POR CODIGO -----------------------------
+        // ----------------------------------------------------------------------------------------------------
+        public bool deleteByCode(String code)
+        {
+            try
+            {
+                dbCommand = new OleDbCommand();
+                dbCommand.Connection = dbConnection;
+                dbCommand.CommandText = "DELETE FROM Productos WHERE Codigo = ?";
+                dbCommand.Parameters.AddWithValue("?", code);
+
+                int filasAfectadas = dbCommand.ExecuteNonQuery();
+
+                if (filasAfectadas > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al  el producto: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                dataReader.Close();
+            }
+        }
+
+        // ----------------------------------------------------------------------------------------------------
+        // ---------------------------- METODO PARA ELIMINAR PRODUCTOS POR NOMBRE -----------------------------
+        // ----------------------------------------------------------------------------------------------------
+        public bool deleteByName(String name)
+        {
+            try
+            {
+                dbCommand = new OleDbCommand();
+                dbCommand.Connection = dbConnection;
+                dbCommand.CommandText = "DELETE FROM Productos WHERE Nombre = ?";
+                dbCommand.Parameters.AddWithValue("?", name);
+
+                int filasAfectadas = dbCommand.ExecuteNonQuery();
+
+                if (filasAfectadas > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al  el producto: " + ex.Message);
                 return false;
             }
             finally

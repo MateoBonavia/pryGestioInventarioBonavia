@@ -23,7 +23,13 @@ namespace pryGestioInventarioBonavia
             connection.ConnectDb();
             connection.fillCombo(cboCat_gestion);
             changeTxt(false);
+            btnEliminar_gestion.Enabled = false;
+            btnModificar_gestion.Enabled = false;
         }
+
+        // =================================================================================================
+        // ================================ SECCION DE GESTION DE PRODUCTOS ================================
+        // =================================================================================================
 
         private void btnAgregar_gestion_Click(object sender, EventArgs e)
         {
@@ -40,6 +46,38 @@ namespace pryGestioInventarioBonavia
             txtPrecio_gestion.Enabled = change;
             txtStock_gestion.Enabled = change;
             txtDesc_gestion.Enabled = change;
+        }
+
+        // Función para bloquear/desbloquear los buttons.
+        private void changeBtn()
+        {
+            if (string.IsNullOrEmpty(txtCodigo_gestion.Text)
+                || string.IsNullOrEmpty(txtNombre_gestion.Text)
+                || string.IsNullOrEmpty(txtPrecio_gestion.Text)
+                || string.IsNullOrEmpty(txtStock_gestion.Text)
+                || string.IsNullOrEmpty(txtDesc_gestion.Text)
+                || cboCat_gestion.SelectedValue == null)
+            {
+                btnEliminar_gestion.Enabled = false;
+                btnModificar_gestion.Enabled = false;
+            }
+            else
+            {
+                btnEliminar_gestion.Enabled = true;
+                btnModificar_gestion.Enabled = true;
+            }
+        }
+
+        private void clean()
+        {
+            txtBuscar_gestion.Text = "";
+            txtCodigo_gestion.Text = "";
+            txtNombre_gestion.Text = "";
+            txtPrecio_gestion.Text = "";
+            txtStock_gestion.Text = "";
+            txtDesc_gestion.Text = "";
+            cboCat_gestion.SelectedIndex = -1;
+            changeTxt(false);
         }
 
         private void btnBuscar_gestion_Click(object sender, EventArgs e)
@@ -61,8 +99,123 @@ namespace pryGestioInventarioBonavia
                     txtDesc_gestion
                     );
             }
-            if (rdbNombre_gestion.Checked) { }
-            if (rdbCat_gestion.Checked) { }
+            if (rdbNombre_gestion.Checked)
+            {
+                connection.searchName(
+                    txtBuscar_gestion.Text,
+                    txtCodigo_gestion,
+                    cboCat_gestion,
+                    txtNombre_gestion,
+                    txtPrecio_gestion,
+                    txtStock_gestion,
+                    txtDesc_gestion
+                    );
+            }
+        }
+
+        private void btnModificar_gestion_Click(object sender, EventArgs e)
+        {
+            if (rdbCodigo_gestion.Checked)
+            {
+                bool exito = connection.updateProductByCode(
+                    txtCodigo_gestion.Text,
+                    cboCat_gestion.SelectedIndex,
+                    txtNombre_gestion.Text,
+                    Convert.ToDecimal(txtPrecio_gestion.Text),
+                    txtStock_gestion.Text,
+                    txtDesc_gestion.Text
+                    );
+
+                if (exito)
+                {
+                    MessageBox.Show("¡Producto modificado con éxito!");
+                }
+                else
+                {
+                    MessageBox.Show("Producto no encontrado.");
+                }
+            }
+            if (rdbNombre_gestion.Checked)
+            {
+                bool exito = connection.updateProductByName(
+                    txtCodigo_gestion.Text,
+                    cboCat_gestion.SelectedIndex,
+                    txtNombre_gestion.Text,
+                    Convert.ToDecimal(txtPrecio_gestion.Text),
+                    txtStock_gestion.Text,
+                    txtDesc_gestion.Text
+                    );
+
+                if (exito)
+                {
+                    MessageBox.Show("¡Producto modificado con éxito!");
+                }
+                else
+                {
+                    MessageBox.Show("Producto no encontrado.");
+                }
+            }
+        }
+
+        private void btnEliminar_gestion_Click(object sender, EventArgs e)
+        {
+            if (rdbCodigo_gestion.Checked)
+            {
+                bool exito = connection.deleteByCode(txtCodigo_gestion.Text);
+
+                if (exito)
+                {
+                    MessageBox.Show("¡Producto eliminado con éxito!");
+                    clean();
+                }
+            }
+            if (rdbNombre_gestion.Checked)
+            {
+                bool exito = connection.deleteByName(txtNombre_gestion.Text);
+
+                if (exito)
+                {
+                    MessageBox.Show("¡Producto eliminado con éxito!");
+                    clean();
+                }
+            }
+        }
+
+        private void txtCodigo_gestion_TextChanged(object sender, EventArgs e)
+        {
+            changeBtn();
+        }
+
+        private void cboCat_gestion_TextChanged(object sender, EventArgs e)
+        {
+            changeBtn();
+        }
+
+        private void txtNombre_gestion_TextChanged(object sender, EventArgs e)
+        {
+            changeBtn();
+        }
+
+        private void txtPrecio_gestion_TextChanged(object sender, EventArgs e)
+        {
+            changeBtn();
+        }
+
+        private void txtStock_gestion_TextChanged(object sender, EventArgs e)
+        {
+            changeBtn();
+        }
+
+        private void txtDesc_gestion_TextChanged(object sender, EventArgs e)
+        {
+            changeBtn();
+        }
+
+        // =================================================================================================
+        // ======================================= SECCION DE BUSCAR =======================================
+        // =================================================================================================
+        private void btnBuscar_buscar_Click(object sender, EventArgs e)
+        {
         }
     }
 }
