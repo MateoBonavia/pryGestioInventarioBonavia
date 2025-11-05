@@ -22,6 +22,8 @@ namespace pryGestioInventarioBonavia
         {
             connection.ConnectDb();
             connection.fillCombo(cboCat_gestion);
+            connection.fillCombo(cboCat_buscar);
+            mtbMain.SelectedIndex = 0;
             changeTxt(false);
             btnEliminar_gestion.Enabled = false;
             btnModificar_gestion.Enabled = false;
@@ -216,6 +218,16 @@ namespace pryGestioInventarioBonavia
         // =================================================================================================
         private void btnBuscar_buscar_Click(object sender, EventArgs e)
         {
+            connection.searchCat(cboCat_buscar.Text, dgvData);
+        }
+
+        private void mtbMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (mtbMain.SelectedIndex == 2)
+            {
+                connection.generateReport(chtReporte);
+            }
+
         }
     }
 }

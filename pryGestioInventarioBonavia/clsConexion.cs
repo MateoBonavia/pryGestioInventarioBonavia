@@ -7,6 +7,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using MetroFramework.Controls;
 
 namespace pryGestioInventarioBonavia
@@ -171,35 +172,33 @@ namespace pryGestioInventarioBonavia
         // ----------------------------------------------------------------------------------------------------
         public void searchCat(
             string categoria,
-            MetroTextBox codigo,
-            MetroComboBox cat,
-            MetroTextBox nombre,
-            MetroTextBox precio,
-            MetroTextBox stock,
-            MetroTextBox desc
+            DataGridView dgvData
         )
         {
+            dgvData.Rows.Clear();
             try
             {
                 dbCommand = new OleDbCommand();
                 dbCommand.Connection = dbConnection;
-                dbCommand.CommandText = "SELECT * FROM Productos WHERE Categoria = ?";
-                dbCommand.Parameters.AddWithValue("?", Convert.ToInt32(categoria));
+                dbCommand.CommandText = "SELECT p.Codigo, p.Nombre, c.Nombre AS Categoria, " +
+                         "p.Precio, p.Stock, p.Descripcion " +
+                         "FROM (Productos AS p " +
+                         "INNER JOIN Categorias AS c ON p.Categoria = c.ID) " +
+                         "WHERE c.Nombre = ?";
+                dbCommand.Parameters.AddWithValue("?", categoria);
 
                 dataReader = dbCommand.ExecuteReader();
 
-                if (dataReader.Read())
+                while (dataReader.Read())
                 {
-                    codigo.Text = dataReader["Codigo"].ToString();
-                    nombre.Text = dataReader["Nombre"].ToString();
-                    precio.Text = dataReader["Precio"].ToString();
-                    stock.Text = dataReader["Stock"].ToString();
-                    desc.Text = dataReader["Descripcion"].ToString();
-                    cat.SelectedValue = dataReader["Categoria"];
-                }
-                else
-                {
-                    MessageBox.Show("No se encontró ningún producto con esa categoria.");
+                    dgvData.Rows.Add(
+                        dataReader["Codigo"].ToString(),
+                        dataReader["Nombre"].ToString(),
+                        dataReader["Categoria"].ToString(),
+                        $"$ {dataReader["Precio"].ToString()}",
+                        dataReader["Stock"].ToString(),
+                        dataReader["Descripcion"].ToString()
+                    );
                 }
             }
             catch (Exception ex)
@@ -417,12 +416,60 @@ namespace pryGestioInventarioBonavia
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al  el producto: " + ex.Message);
+                MessageBox.Show("Error al eliminar el producto: " + ex.Message);
                 return false;
             }
             finally
             {
                 dataReader.Close();
+            }
+        }
+
+        // ----------------------------------------------------------------------------------------------------
+        // ---------------------------------- METODO PARA GENERAR EL REPORTE ----------------------------------
+        // ----------------------------------------------------------------------------------------------------
+        public void generateReport(Chart chart)
+        {
+            try
+            {
+                chart.Series.Clear();
+                chart.Legends.Clear();
+
+                Series serieStock = new Series("StockXCategoria");
+                serieStock.ChartType = SeriesChartType.Pie;
+
+                dbCommand = new OleDbCommand();
+                dbCommand.Connection = dbConnection;
+                dbCommand.CommandText = "SELECT c.Nombre AS Categoria, SUM(p.Stock) AS TotalStock " +
+                                        "FROM (Productos AS p " +
+                                        "INNER JOIN Categorias AS c ON p.Categoria = c.ID) " +
+                                        "GROUP BY c.Nombre";
+
+                dataReader = dbCommand.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    string categoria = dataReader["Categoria"].ToString();
+                    int totalStock = Convert.ToInt32(dataReader["TotalStock"]);
+
+                    int pointIndex = serieStock.Points.AddXY(categoria, totalStock);
+
+                    serieStock.Points[pointIndex].LegendText = categoria;
+                }
+                chart.Series.Add(serieStock);
+                chart.Legends.Add(new Legend("Reporte"));
+                serieStock.Legend = "Reporte";
+
+                // Muestro los datos en el grafico.
+                serieStock.IsValueShownAsLabel = true;
+                // Formatea el numero sin decimales y le agrega el simbolo de porcentaje.
+                serieStock.LabelFormat = "{0:0} %";
+                // Hace que el grafico calcule el porcentaje para que sepa que cantidad del grafico tomar.
+                serieStock.Label = "#PERCENT";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar el reporte: " + ex.Message);
             }
         }
     }

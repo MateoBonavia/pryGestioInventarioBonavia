@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.mtbMain = new MetroFramework.Controls.MetroTabControl();
             this.mtbGestion = new MetroFramework.Controls.MetroTabPage();
             this.txtCodigo_gestion = new MetroFramework.Controls.MetroTextBox();
@@ -60,16 +63,19 @@
             this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gpbBuscar_buscar = new System.Windows.Forms.GroupBox();
+            this.cboCat_buscar = new MetroFramework.Controls.MetroComboBox();
             this.btnBuscar_buscar = new MetroFramework.Controls.MetroButton();
-            this.txtBuscar_buscar = new MetroFramework.Controls.MetroTextBox();
-            this.mtbInforme = new MetroFramework.Controls.MetroTabPage();
             this.lblBuscar_buscar = new MetroFramework.Controls.MetroLabel();
+            this.mtbInforme = new MetroFramework.Controls.MetroTabPage();
+            this.chtReporte = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.mtbMain.SuspendLayout();
             this.mtbGestion.SuspendLayout();
             this.gpbBuscar_gestion.SuspendLayout();
             this.mtbBuscarCategoria.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.gpbBuscar_buscar.SuspendLayout();
+            this.mtbInforme.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chtReporte)).BeginInit();
             this.SuspendLayout();
             // 
             // mtbMain
@@ -79,10 +85,11 @@
             this.mtbMain.Controls.Add(this.mtbInforme);
             this.mtbMain.Location = new System.Drawing.Point(12, 12);
             this.mtbMain.Name = "mtbMain";
-            this.mtbMain.SelectedIndex = 1;
+            this.mtbMain.SelectedIndex = 2;
             this.mtbMain.Size = new System.Drawing.Size(677, 373);
             this.mtbMain.TabIndex = 0;
             this.mtbMain.UseSelectable = true;
+            this.mtbMain.SelectedIndexChanged += new System.EventHandler(this.mtbMain_SelectedIndexChanged);
             // 
             // mtbGestion
             // 
@@ -104,15 +111,15 @@
             this.mtbGestion.Controls.Add(this.gpbBuscar_gestion);
             this.mtbGestion.HorizontalScrollbarBarColor = true;
             this.mtbGestion.HorizontalScrollbarHighlightOnWheel = false;
-            this.mtbGestion.HorizontalScrollbarSize = 3;
+            this.mtbGestion.HorizontalScrollbarSize = 1;
             this.mtbGestion.Location = new System.Drawing.Point(4, 38);
             this.mtbGestion.Name = "mtbGestion";
-            this.mtbGestion.Size = new System.Drawing.Size(669, 323);
+            this.mtbGestion.Size = new System.Drawing.Size(669, 331);
             this.mtbGestion.TabIndex = 0;
             this.mtbGestion.Text = "Gestión de Producto";
             this.mtbGestion.VerticalScrollbarBarColor = true;
             this.mtbGestion.VerticalScrollbarHighlightOnWheel = false;
-            this.mtbGestion.VerticalScrollbarSize = 4;
+            this.mtbGestion.VerticalScrollbarSize = 2;
             // 
             // txtCodigo_gestion
             // 
@@ -460,7 +467,7 @@
             this.mtbBuscarCategoria.Controls.Add(this.gpbBuscar_buscar);
             this.mtbBuscarCategoria.HorizontalScrollbarBarColor = true;
             this.mtbBuscarCategoria.HorizontalScrollbarHighlightOnWheel = false;
-            this.mtbBuscarCategoria.HorizontalScrollbarSize = 3;
+            this.mtbBuscarCategoria.HorizontalScrollbarSize = 1;
             this.mtbBuscarCategoria.Location = new System.Drawing.Point(4, 38);
             this.mtbBuscarCategoria.Name = "mtbBuscarCategoria";
             this.mtbBuscarCategoria.Size = new System.Drawing.Size(669, 331);
@@ -468,7 +475,7 @@
             this.mtbBuscarCategoria.Text = "Buscar por categoria";
             this.mtbBuscarCategoria.VerticalScrollbarBarColor = true;
             this.mtbBuscarCategoria.VerticalScrollbarHighlightOnWheel = false;
-            this.mtbBuscarCategoria.VerticalScrollbarSize = 4;
+            this.mtbBuscarCategoria.VerticalScrollbarSize = 2;
             // 
             // dgvData
             // 
@@ -538,8 +545,8 @@
             // gpbBuscar_buscar
             // 
             this.gpbBuscar_buscar.BackColor = System.Drawing.Color.Transparent;
+            this.gpbBuscar_buscar.Controls.Add(this.cboCat_buscar);
             this.gpbBuscar_buscar.Controls.Add(this.btnBuscar_buscar);
-            this.gpbBuscar_buscar.Controls.Add(this.txtBuscar_buscar);
             this.gpbBuscar_buscar.Controls.Add(this.lblBuscar_buscar);
             this.gpbBuscar_buscar.Location = new System.Drawing.Point(3, 3);
             this.gpbBuscar_buscar.Name = "gpbBuscar_buscar";
@@ -548,60 +555,25 @@
             this.gpbBuscar_buscar.TabStop = false;
             this.gpbBuscar_buscar.Text = "Buscar";
             // 
+            // cboCat_buscar
+            // 
+            this.cboCat_buscar.FormattingEnabled = true;
+            this.cboCat_buscar.ItemHeight = 24;
+            this.cboCat_buscar.Location = new System.Drawing.Point(83, 20);
+            this.cboCat_buscar.Name = "cboCat_buscar";
+            this.cboCat_buscar.Size = new System.Drawing.Size(287, 30);
+            this.cboCat_buscar.TabIndex = 14;
+            this.cboCat_buscar.UseSelectable = true;
+            // 
             // btnBuscar_buscar
             // 
-            this.btnBuscar_buscar.Location = new System.Drawing.Point(272, 25);
+            this.btnBuscar_buscar.Location = new System.Drawing.Point(388, 20);
             this.btnBuscar_buscar.Name = "btnBuscar_buscar";
-            this.btnBuscar_buscar.Size = new System.Drawing.Size(84, 23);
+            this.btnBuscar_buscar.Size = new System.Drawing.Size(84, 30);
             this.btnBuscar_buscar.TabIndex = 7;
             this.btnBuscar_buscar.Text = "Buscar";
             this.btnBuscar_buscar.UseSelectable = true;
             this.btnBuscar_buscar.Click += new System.EventHandler(this.btnBuscar_buscar_Click);
-            // 
-            // txtBuscar_buscar
-            // 
-            // 
-            // 
-            // 
-            this.txtBuscar_buscar.CustomButton.Image = null;
-            this.txtBuscar_buscar.CustomButton.Location = new System.Drawing.Point(107, 1);
-            this.txtBuscar_buscar.CustomButton.Margin = new System.Windows.Forms.Padding(1);
-            this.txtBuscar_buscar.CustomButton.Name = "";
-            this.txtBuscar_buscar.CustomButton.Size = new System.Drawing.Size(15, 15);
-            this.txtBuscar_buscar.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtBuscar_buscar.CustomButton.TabIndex = 1;
-            this.txtBuscar_buscar.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtBuscar_buscar.CustomButton.UseSelectable = true;
-            this.txtBuscar_buscar.CustomButton.Visible = false;
-            this.txtBuscar_buscar.Lines = new string[0];
-            this.txtBuscar_buscar.Location = new System.Drawing.Point(83, 25);
-            this.txtBuscar_buscar.MaxLength = 32767;
-            this.txtBuscar_buscar.Name = "txtBuscar_buscar";
-            this.txtBuscar_buscar.PasswordChar = '\0';
-            this.txtBuscar_buscar.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtBuscar_buscar.SelectedText = "";
-            this.txtBuscar_buscar.SelectionLength = 0;
-            this.txtBuscar_buscar.SelectionStart = 0;
-            this.txtBuscar_buscar.ShortcutsEnabled = true;
-            this.txtBuscar_buscar.Size = new System.Drawing.Size(169, 23);
-            this.txtBuscar_buscar.TabIndex = 6;
-            this.txtBuscar_buscar.UseSelectable = true;
-            this.txtBuscar_buscar.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtBuscar_buscar.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // mtbInforme
-            // 
-            this.mtbInforme.HorizontalScrollbarBarColor = true;
-            this.mtbInforme.HorizontalScrollbarHighlightOnWheel = false;
-            this.mtbInforme.HorizontalScrollbarSize = 3;
-            this.mtbInforme.Location = new System.Drawing.Point(4, 38);
-            this.mtbInforme.Name = "mtbInforme";
-            this.mtbInforme.Size = new System.Drawing.Size(655, 323);
-            this.mtbInforme.TabIndex = 2;
-            this.mtbInforme.Text = "Informe";
-            this.mtbInforme.VerticalScrollbarBarColor = true;
-            this.mtbInforme.VerticalScrollbarHighlightOnWheel = false;
-            this.mtbInforme.VerticalScrollbarSize = 4;
             // 
             // lblBuscar_buscar
             // 
@@ -611,6 +583,36 @@
             this.lblBuscar_buscar.Size = new System.Drawing.Size(71, 20);
             this.lblBuscar_buscar.TabIndex = 5;
             this.lblBuscar_buscar.Text = "Categoría:";
+            // 
+            // mtbInforme
+            // 
+            this.mtbInforme.Controls.Add(this.chtReporte);
+            this.mtbInforme.HorizontalScrollbarBarColor = true;
+            this.mtbInforme.HorizontalScrollbarHighlightOnWheel = false;
+            this.mtbInforme.HorizontalScrollbarSize = 1;
+            this.mtbInforme.Location = new System.Drawing.Point(4, 38);
+            this.mtbInforme.Name = "mtbInforme";
+            this.mtbInforme.Size = new System.Drawing.Size(669, 331);
+            this.mtbInforme.TabIndex = 2;
+            this.mtbInforme.Text = "Reporte de inventario";
+            this.mtbInforme.VerticalScrollbarBarColor = true;
+            this.mtbInforme.VerticalScrollbarHighlightOnWheel = false;
+            this.mtbInforme.VerticalScrollbarSize = 2;
+            // 
+            // chtReporte
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chtReporte.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chtReporte.Legends.Add(legend1);
+            this.chtReporte.Location = new System.Drawing.Point(3, 18);
+            this.chtReporte.Name = "chtReporte";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chtReporte.Series.Add(series1);
+            this.chtReporte.Size = new System.Drawing.Size(663, 300);
+            this.chtReporte.TabIndex = 2;
             // 
             // frmMain
             // 
@@ -634,6 +636,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.gpbBuscar_buscar.ResumeLayout(false);
             this.gpbBuscar_buscar.PerformLayout();
+            this.mtbInforme.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chtReporte)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -665,8 +669,6 @@
         private MetroFramework.Controls.MetroComboBox cboCat_gestion;
         private System.Windows.Forms.DataGridView dgvData;
         private System.Windows.Forms.GroupBox gpbBuscar_buscar;
-        private MetroFramework.Controls.MetroButton btnBuscar_buscar;
-        private MetroFramework.Controls.MetroTextBox txtBuscar_buscar;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn cat;
@@ -676,5 +678,8 @@
         private MetroFramework.Controls.MetroTextBox txtCodigo_gestion;
         private MetroFramework.Controls.MetroLabel lblCodigo_gestion;
         private MetroFramework.Controls.MetroLabel lblBuscar_buscar;
+        private MetroFramework.Controls.MetroComboBox cboCat_buscar;
+        private MetroFramework.Controls.MetroButton btnBuscar_buscar;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chtReporte;
     }
 }
