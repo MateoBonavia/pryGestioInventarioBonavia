@@ -30,6 +30,8 @@
         {
             this.mtbMain = new MetroFramework.Controls.MetroTabControl();
             this.mtbGestion = new MetroFramework.Controls.MetroTabPage();
+            this.txtCodigo_gestion = new MetroFramework.Controls.MetroTextBox();
+            this.lblCodigo_gestion = new MetroFramework.Controls.MetroLabel();
             this.btnEliminar_gestion = new MetroFramework.Controls.MetroButton();
             this.btnModificar_gestion = new MetroFramework.Controls.MetroButton();
             this.btnAgregar_gestion = new MetroFramework.Controls.MetroButton();
@@ -66,8 +68,6 @@
             this.rdbNombre_buscar = new MetroFramework.Controls.MetroRadioButton();
             this.rdbCodigo_buscar = new MetroFramework.Controls.MetroRadioButton();
             this.mtbInforme = new MetroFramework.Controls.MetroTabPage();
-            this.txtCodigo_gestion = new MetroFramework.Controls.MetroTextBox();
-            this.lblCodigo_gestion = new MetroFramework.Controls.MetroLabel();
             this.mtbMain.SuspendLayout();
             this.mtbGestion.SuspendLayout();
             this.gpbBuscar_gestion.SuspendLayout();
@@ -118,6 +118,46 @@
             this.mtbGestion.VerticalScrollbarHighlightOnWheel = false;
             this.mtbGestion.VerticalScrollbarSize = 7;
             // 
+            // txtCodigo_gestion
+            // 
+            // 
+            // 
+            // 
+            this.txtCodigo_gestion.CustomButton.Image = null;
+            this.txtCodigo_gestion.CustomButton.Location = new System.Drawing.Point(288, 1);
+            this.txtCodigo_gestion.CustomButton.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCodigo_gestion.CustomButton.Name = "";
+            this.txtCodigo_gestion.CustomButton.Size = new System.Drawing.Size(23, 22);
+            this.txtCodigo_gestion.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtCodigo_gestion.CustomButton.TabIndex = 1;
+            this.txtCodigo_gestion.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtCodigo_gestion.CustomButton.UseSelectable = true;
+            this.txtCodigo_gestion.CustomButton.Visible = false;
+            this.txtCodigo_gestion.Lines = new string[0];
+            this.txtCodigo_gestion.Location = new System.Drawing.Point(361, 88);
+            this.txtCodigo_gestion.MaxLength = 32767;
+            this.txtCodigo_gestion.Name = "txtCodigo_gestion";
+            this.txtCodigo_gestion.PasswordChar = '\0';
+            this.txtCodigo_gestion.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtCodigo_gestion.SelectedText = "";
+            this.txtCodigo_gestion.SelectionLength = 0;
+            this.txtCodigo_gestion.SelectionStart = 0;
+            this.txtCodigo_gestion.ShortcutsEnabled = true;
+            this.txtCodigo_gestion.Size = new System.Drawing.Size(287, 23);
+            this.txtCodigo_gestion.TabIndex = 10;
+            this.txtCodigo_gestion.UseSelectable = true;
+            this.txtCodigo_gestion.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtCodigo_gestion.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // lblCodigo_gestion
+            // 
+            this.lblCodigo_gestion.AutoSize = true;
+            this.lblCodigo_gestion.Location = new System.Drawing.Point(268, 89);
+            this.lblCodigo_gestion.Name = "lblCodigo_gestion";
+            this.lblCodigo_gestion.Size = new System.Drawing.Size(53, 20);
+            this.lblCodigo_gestion.TabIndex = 11;
+            this.lblCodigo_gestion.Text = "Código";
+            // 
             // btnEliminar_gestion
             // 
             this.btnEliminar_gestion.Location = new System.Drawing.Point(91, 226);
@@ -152,10 +192,10 @@
             // 
             // 
             this.txtDesc_gestion.CustomButton.Image = null;
-            this.txtDesc_gestion.CustomButton.Location = new System.Drawing.Point(177, 1);
-            this.txtDesc_gestion.CustomButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDesc_gestion.CustomButton.Location = new System.Drawing.Point(288, 1);
+            this.txtDesc_gestion.CustomButton.Margin = new System.Windows.Forms.Padding(2);
             this.txtDesc_gestion.CustomButton.Name = "";
-            this.txtDesc_gestion.CustomButton.Size = new System.Drawing.Size(14, 14);
+            this.txtDesc_gestion.CustomButton.Size = new System.Drawing.Size(23, 22);
             this.txtDesc_gestion.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtDesc_gestion.CustomButton.TabIndex = 1;
             this.txtDesc_gestion.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -183,10 +223,10 @@
             // 
             // 
             this.txtStock_gestion.CustomButton.Image = null;
-            this.txtStock_gestion.CustomButton.Location = new System.Drawing.Point(63, 1);
-            this.txtStock_gestion.CustomButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtStock_gestion.CustomButton.Location = new System.Drawing.Point(103, 1);
+            this.txtStock_gestion.CustomButton.Margin = new System.Windows.Forms.Padding(2);
             this.txtStock_gestion.CustomButton.Name = "";
-            this.txtStock_gestion.CustomButton.Size = new System.Drawing.Size(14, 14);
+            this.txtStock_gestion.CustomButton.Size = new System.Drawing.Size(23, 22);
             this.txtStock_gestion.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtStock_gestion.CustomButton.TabIndex = 1;
             this.txtStock_gestion.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -214,10 +254,10 @@
             // 
             // 
             this.txtPrecio_gestion.CustomButton.Image = null;
-            this.txtPrecio_gestion.CustomButton.Location = new System.Drawing.Point(63, 1);
-            this.txtPrecio_gestion.CustomButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPrecio_gestion.CustomButton.Location = new System.Drawing.Point(103, 1);
+            this.txtPrecio_gestion.CustomButton.Margin = new System.Windows.Forms.Padding(2);
             this.txtPrecio_gestion.CustomButton.Name = "";
-            this.txtPrecio_gestion.CustomButton.Size = new System.Drawing.Size(14, 14);
+            this.txtPrecio_gestion.CustomButton.Size = new System.Drawing.Size(23, 22);
             this.txtPrecio_gestion.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtPrecio_gestion.CustomButton.TabIndex = 1;
             this.txtPrecio_gestion.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -245,10 +285,10 @@
             // 
             // 
             this.txtNombre_gestion.CustomButton.Image = null;
-            this.txtNombre_gestion.CustomButton.Location = new System.Drawing.Point(177, 1);
-            this.txtNombre_gestion.CustomButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNombre_gestion.CustomButton.Location = new System.Drawing.Point(288, 1);
+            this.txtNombre_gestion.CustomButton.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre_gestion.CustomButton.Name = "";
-            this.txtNombre_gestion.CustomButton.Size = new System.Drawing.Size(14, 14);
+            this.txtNombre_gestion.CustomButton.Size = new System.Drawing.Size(23, 22);
             this.txtNombre_gestion.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtNombre_gestion.CustomButton.TabIndex = 1;
             this.txtNombre_gestion.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -273,10 +313,10 @@
             // cboCat_gestion
             // 
             this.cboCat_gestion.FormattingEnabled = true;
-            this.cboCat_gestion.ItemHeight = 23;
+            this.cboCat_gestion.ItemHeight = 24;
             this.cboCat_gestion.Location = new System.Drawing.Point(361, 125);
             this.cboCat_gestion.Name = "cboCat_gestion";
-            this.cboCat_gestion.Size = new System.Drawing.Size(287, 29);
+            this.cboCat_gestion.Size = new System.Drawing.Size(287, 30);
             this.cboCat_gestion.TabIndex = 13;
             this.cboCat_gestion.UseSelectable = true;
             // 
@@ -285,7 +325,7 @@
             this.lblDesc_gestion.AutoSize = true;
             this.lblDesc_gestion.Location = new System.Drawing.Point(268, 259);
             this.lblDesc_gestion.Name = "lblDesc_gestion";
-            this.lblDesc_gestion.Size = new System.Drawing.Size(76, 19);
+            this.lblDesc_gestion.Size = new System.Drawing.Size(82, 20);
             this.lblDesc_gestion.TabIndex = 12;
             this.lblDesc_gestion.Text = "Descripción";
             // 
@@ -294,7 +334,7 @@
             this.lblStock_gestion.AutoSize = true;
             this.lblStock_gestion.Location = new System.Drawing.Point(484, 214);
             this.lblStock_gestion.Name = "lblStock_gestion";
-            this.lblStock_gestion.Size = new System.Drawing.Size(40, 19);
+            this.lblStock_gestion.Size = new System.Drawing.Size(42, 20);
             this.lblStock_gestion.TabIndex = 11;
             this.lblStock_gestion.Text = "Stock";
             // 
@@ -303,7 +343,7 @@
             this.lblPrecio_gestion.AutoSize = true;
             this.lblPrecio_gestion.Location = new System.Drawing.Point(268, 214);
             this.lblPrecio_gestion.Name = "lblPrecio_gestion";
-            this.lblPrecio_gestion.Size = new System.Drawing.Size(46, 19);
+            this.lblPrecio_gestion.Size = new System.Drawing.Size(48, 20);
             this.lblPrecio_gestion.TabIndex = 10;
             this.lblPrecio_gestion.Text = "Precio";
             // 
@@ -312,7 +352,7 @@
             this.lblNombre_gestion.AutoSize = true;
             this.lblNombre_gestion.Location = new System.Drawing.Point(268, 174);
             this.lblNombre_gestion.Name = "lblNombre_gestion";
-            this.lblNombre_gestion.Size = new System.Drawing.Size(59, 19);
+            this.lblNombre_gestion.Size = new System.Drawing.Size(61, 20);
             this.lblNombre_gestion.TabIndex = 9;
             this.lblNombre_gestion.Text = "Nombre";
             // 
@@ -321,7 +361,7 @@
             this.lblCat_gestion.AutoSize = true;
             this.lblCat_gestion.Location = new System.Drawing.Point(268, 132);
             this.lblCat_gestion.Name = "lblCat_gestion";
-            this.lblCat_gestion.Size = new System.Drawing.Size(72, 19);
+            this.lblCat_gestion.Size = new System.Drawing.Size(74, 20);
             this.lblCat_gestion.TabIndex = 8;
             this.lblCat_gestion.Text = "Categorias";
             // 
@@ -357,10 +397,10 @@
             // 
             // 
             this.txtBuscar_gestion.CustomButton.Image = null;
-            this.txtBuscar_gestion.CustomButton.Location = new System.Drawing.Point(98, 1);
-            this.txtBuscar_gestion.CustomButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBuscar_gestion.CustomButton.Location = new System.Drawing.Point(160, 1);
+            this.txtBuscar_gestion.CustomButton.Margin = new System.Windows.Forms.Padding(2);
             this.txtBuscar_gestion.CustomButton.Name = "";
-            this.txtBuscar_gestion.CustomButton.Size = new System.Drawing.Size(14, 14);
+            this.txtBuscar_gestion.CustomButton.Size = new System.Drawing.Size(23, 22);
             this.txtBuscar_gestion.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtBuscar_gestion.CustomButton.TabIndex = 1;
             this.txtBuscar_gestion.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -387,7 +427,7 @@
             this.lblBuscarPor_gestion.AutoSize = true;
             this.lblBuscarPor_gestion.Location = new System.Drawing.Point(6, 22);
             this.lblBuscarPor_gestion.Name = "lblBuscarPor_gestion";
-            this.lblBuscarPor_gestion.Size = new System.Drawing.Size(76, 19);
+            this.lblBuscarPor_gestion.Size = new System.Drawing.Size(79, 20);
             this.lblBuscarPor_gestion.TabIndex = 5;
             this.lblBuscarPor_gestion.Text = "Buscar por:";
             // 
@@ -396,7 +436,7 @@
             this.rdbCat_gestion.AutoSize = true;
             this.rdbCat_gestion.Location = new System.Drawing.Point(251, 25);
             this.rdbCat_gestion.Name = "rdbCat_gestion";
-            this.rdbCat_gestion.Size = new System.Drawing.Size(74, 15);
+            this.rdbCat_gestion.Size = new System.Drawing.Size(81, 17);
             this.rdbCat_gestion.TabIndex = 4;
             this.rdbCat_gestion.Text = "Categoría";
             this.rdbCat_gestion.UseSelectable = true;
@@ -406,7 +446,7 @@
             this.rdbNombre_gestion.AutoSize = true;
             this.rdbNombre_gestion.Location = new System.Drawing.Point(166, 25);
             this.rdbNombre_gestion.Name = "rdbNombre_gestion";
-            this.rdbNombre_gestion.Size = new System.Drawing.Size(67, 15);
+            this.rdbNombre_gestion.Size = new System.Drawing.Size(73, 17);
             this.rdbNombre_gestion.TabIndex = 3;
             this.rdbNombre_gestion.Text = "Nombre";
             this.rdbNombre_gestion.UseSelectable = true;
@@ -416,7 +456,7 @@
             this.rdbCodigo_gestion.AutoSize = true;
             this.rdbCodigo_gestion.Location = new System.Drawing.Point(88, 25);
             this.rdbCodigo_gestion.Name = "rdbCodigo_gestion";
-            this.rdbCodigo_gestion.Size = new System.Drawing.Size(62, 15);
+            this.rdbCodigo_gestion.Size = new System.Drawing.Size(67, 17);
             this.rdbCodigo_gestion.TabIndex = 2;
             this.rdbCodigo_gestion.Text = "Código";
             this.rdbCodigo_gestion.UseSelectable = true;
@@ -450,12 +490,14 @@
             this.desc});
             this.dgvData.Location = new System.Drawing.Point(9, 69);
             this.dgvData.Name = "dgvData";
+            this.dgvData.RowHeadersWidth = 51;
             this.dgvData.Size = new System.Drawing.Size(639, 251);
             this.dgvData.TabIndex = 4;
             // 
             // codigo
             // 
             this.codigo.HeaderText = "Código";
+            this.codigo.MinimumWidth = 6;
             this.codigo.Name = "codigo";
             this.codigo.ReadOnly = true;
             this.codigo.Width = 75;
@@ -463,6 +505,7 @@
             // nombre
             // 
             this.nombre.HeaderText = "Nombre";
+            this.nombre.MinimumWidth = 6;
             this.nombre.Name = "nombre";
             this.nombre.ReadOnly = true;
             this.nombre.Width = 120;
@@ -470,6 +513,7 @@
             // cat
             // 
             this.cat.HeaderText = "Categoría";
+            this.cat.MinimumWidth = 6;
             this.cat.Name = "cat";
             this.cat.ReadOnly = true;
             this.cat.Width = 120;
@@ -477,6 +521,7 @@
             // precio
             // 
             this.precio.HeaderText = "Precio";
+            this.precio.MinimumWidth = 6;
             this.precio.Name = "precio";
             this.precio.ReadOnly = true;
             this.precio.Width = 75;
@@ -484,6 +529,7 @@
             // stock
             // 
             this.stock.HeaderText = "Stock";
+            this.stock.MinimumWidth = 6;
             this.stock.Name = "stock";
             this.stock.ReadOnly = true;
             this.stock.Width = 55;
@@ -491,6 +537,7 @@
             // desc
             // 
             this.desc.HeaderText = "Descripción";
+            this.desc.MinimumWidth = 6;
             this.desc.Name = "desc";
             this.desc.ReadOnly = true;
             this.desc.Width = 150;
@@ -526,10 +573,10 @@
             // 
             // 
             this.txtBuscar_buscar.CustomButton.Image = null;
-            this.txtBuscar_buscar.CustomButton.Location = new System.Drawing.Point(98, 1);
-            this.txtBuscar_buscar.CustomButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBuscar_buscar.CustomButton.Location = new System.Drawing.Point(160, 1);
+            this.txtBuscar_buscar.CustomButton.Margin = new System.Windows.Forms.Padding(2);
             this.txtBuscar_buscar.CustomButton.Name = "";
-            this.txtBuscar_buscar.CustomButton.Size = new System.Drawing.Size(14, 14);
+            this.txtBuscar_buscar.CustomButton.Size = new System.Drawing.Size(23, 22);
             this.txtBuscar_buscar.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtBuscar_buscar.CustomButton.TabIndex = 1;
             this.txtBuscar_buscar.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -556,7 +603,7 @@
             this.lblBuscar_buscar.AutoSize = true;
             this.lblBuscar_buscar.Location = new System.Drawing.Point(6, 22);
             this.lblBuscar_buscar.Name = "lblBuscar_buscar";
-            this.lblBuscar_buscar.Size = new System.Drawing.Size(76, 19);
+            this.lblBuscar_buscar.Size = new System.Drawing.Size(79, 20);
             this.lblBuscar_buscar.TabIndex = 5;
             this.lblBuscar_buscar.Text = "Buscar por:";
             // 
@@ -565,7 +612,7 @@
             this.rdbCat_buscar.AutoSize = true;
             this.rdbCat_buscar.Location = new System.Drawing.Point(251, 25);
             this.rdbCat_buscar.Name = "rdbCat_buscar";
-            this.rdbCat_buscar.Size = new System.Drawing.Size(74, 15);
+            this.rdbCat_buscar.Size = new System.Drawing.Size(81, 17);
             this.rdbCat_buscar.TabIndex = 4;
             this.rdbCat_buscar.Text = "Categoría";
             this.rdbCat_buscar.UseSelectable = true;
@@ -575,7 +622,7 @@
             this.rdbNombre_buscar.AutoSize = true;
             this.rdbNombre_buscar.Location = new System.Drawing.Point(166, 25);
             this.rdbNombre_buscar.Name = "rdbNombre_buscar";
-            this.rdbNombre_buscar.Size = new System.Drawing.Size(67, 15);
+            this.rdbNombre_buscar.Size = new System.Drawing.Size(73, 17);
             this.rdbNombre_buscar.TabIndex = 3;
             this.rdbNombre_buscar.Text = "Nombre";
             this.rdbNombre_buscar.UseSelectable = true;
@@ -585,7 +632,7 @@
             this.rdbCodigo_buscar.AutoSize = true;
             this.rdbCodigo_buscar.Location = new System.Drawing.Point(88, 25);
             this.rdbCodigo_buscar.Name = "rdbCodigo_buscar";
-            this.rdbCodigo_buscar.Size = new System.Drawing.Size(62, 15);
+            this.rdbCodigo_buscar.Size = new System.Drawing.Size(67, 17);
             this.rdbCodigo_buscar.TabIndex = 2;
             this.rdbCodigo_buscar.Text = "Código";
             this.rdbCodigo_buscar.UseSelectable = true;
@@ -597,56 +644,16 @@
             this.mtbInforme.HorizontalScrollbarSize = 7;
             this.mtbInforme.Location = new System.Drawing.Point(4, 38);
             this.mtbInforme.Name = "mtbInforme";
-            this.mtbInforme.Size = new System.Drawing.Size(655, 278);
+            this.mtbInforme.Size = new System.Drawing.Size(655, 323);
             this.mtbInforme.TabIndex = 2;
             this.mtbInforme.Text = "Informe";
             this.mtbInforme.VerticalScrollbarBarColor = true;
             this.mtbInforme.VerticalScrollbarHighlightOnWheel = false;
             this.mtbInforme.VerticalScrollbarSize = 7;
             // 
-            // txtCodigo_gestion
-            // 
-            // 
-            // 
-            // 
-            this.txtCodigo_gestion.CustomButton.Image = null;
-            this.txtCodigo_gestion.CustomButton.Location = new System.Drawing.Point(265, 1);
-            this.txtCodigo_gestion.CustomButton.Margin = new System.Windows.Forms.Padding(2);
-            this.txtCodigo_gestion.CustomButton.Name = "";
-            this.txtCodigo_gestion.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtCodigo_gestion.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtCodigo_gestion.CustomButton.TabIndex = 1;
-            this.txtCodigo_gestion.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtCodigo_gestion.CustomButton.UseSelectable = true;
-            this.txtCodigo_gestion.CustomButton.Visible = false;
-            this.txtCodigo_gestion.Lines = new string[0];
-            this.txtCodigo_gestion.Location = new System.Drawing.Point(361, 88);
-            this.txtCodigo_gestion.MaxLength = 32767;
-            this.txtCodigo_gestion.Name = "txtCodigo_gestion";
-            this.txtCodigo_gestion.PasswordChar = '\0';
-            this.txtCodigo_gestion.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtCodigo_gestion.SelectedText = "";
-            this.txtCodigo_gestion.SelectionLength = 0;
-            this.txtCodigo_gestion.SelectionStart = 0;
-            this.txtCodigo_gestion.ShortcutsEnabled = true;
-            this.txtCodigo_gestion.Size = new System.Drawing.Size(287, 23);
-            this.txtCodigo_gestion.TabIndex = 10;
-            this.txtCodigo_gestion.UseSelectable = true;
-            this.txtCodigo_gestion.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtCodigo_gestion.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // lblCodigo_gestion
-            // 
-            this.lblCodigo_gestion.AutoSize = true;
-            this.lblCodigo_gestion.Location = new System.Drawing.Point(268, 89);
-            this.lblCodigo_gestion.Name = "lblCodigo_gestion";
-            this.lblCodigo_gestion.Size = new System.Drawing.Size(53, 19);
-            this.lblCodigo_gestion.TabIndex = 11;
-            this.lblCodigo_gestion.Text = "Código";
-            // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(688, 389);

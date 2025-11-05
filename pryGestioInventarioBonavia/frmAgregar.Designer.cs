@@ -80,9 +80,9 @@
             this.lblCodigo_agregar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.lblCodigo_agregar.Location = new System.Drawing.Point(11, 13);
             this.lblCodigo_agregar.Name = "lblCodigo_agregar";
-            this.lblCodigo_agregar.Size = new System.Drawing.Size(59, 19);
+            this.lblCodigo_agregar.Size = new System.Drawing.Size(53, 20);
             this.lblCodigo_agregar.TabIndex = 22;
-            this.lblCodigo_agregar.Text = "Nombre";
+            this.lblCodigo_agregar.Text = "Codigo";
             // 
             // txtDesc_agregar
             // 
@@ -211,10 +211,10 @@
             // cboCat_agregar
             // 
             this.cboCat_agregar.FormattingEnabled = true;
-            this.cboCat_agregar.ItemHeight = 23;
+            this.cboCat_agregar.ItemHeight = 24;
             this.cboCat_agregar.Location = new System.Drawing.Point(104, 49);
             this.cboCat_agregar.Name = "cboCat_agregar";
-            this.cboCat_agregar.Size = new System.Drawing.Size(287, 29);
+            this.cboCat_agregar.Size = new System.Drawing.Size(287, 30);
             this.cboCat_agregar.TabIndex = 25;
             this.cboCat_agregar.UseSelectable = true;
             // 
@@ -223,7 +223,7 @@
             this.lblDesc_agregar.AutoSize = true;
             this.lblDesc_agregar.Location = new System.Drawing.Point(11, 181);
             this.lblDesc_agregar.Name = "lblDesc_agregar";
-            this.lblDesc_agregar.Size = new System.Drawing.Size(76, 19);
+            this.lblDesc_agregar.Size = new System.Drawing.Size(82, 20);
             this.lblDesc_agregar.TabIndex = 24;
             this.lblDesc_agregar.Text = "Descripción";
             // 
@@ -232,7 +232,7 @@
             this.lblStock_agregar.AutoSize = true;
             this.lblStock_agregar.Location = new System.Drawing.Point(227, 138);
             this.lblStock_agregar.Name = "lblStock_agregar";
-            this.lblStock_agregar.Size = new System.Drawing.Size(40, 19);
+            this.lblStock_agregar.Size = new System.Drawing.Size(42, 20);
             this.lblStock_agregar.TabIndex = 23;
             this.lblStock_agregar.Text = "Stock";
             // 
@@ -241,7 +241,7 @@
             this.lblPrecio_agregar.AutoSize = true;
             this.lblPrecio_agregar.Location = new System.Drawing.Point(11, 138);
             this.lblPrecio_agregar.Name = "lblPrecio_agregar";
-            this.lblPrecio_agregar.Size = new System.Drawing.Size(46, 19);
+            this.lblPrecio_agregar.Size = new System.Drawing.Size(48, 20);
             this.lblPrecio_agregar.TabIndex = 21;
             this.lblPrecio_agregar.Text = "Precio";
             // 
@@ -250,7 +250,7 @@
             this.lblNombre_agregar.AutoSize = true;
             this.lblNombre_agregar.Location = new System.Drawing.Point(11, 98);
             this.lblNombre_agregar.Name = "lblNombre_agregar";
-            this.lblNombre_agregar.Size = new System.Drawing.Size(59, 19);
+            this.lblNombre_agregar.Size = new System.Drawing.Size(61, 20);
             this.lblNombre_agregar.TabIndex = 19;
             this.lblNombre_agregar.Text = "Nombre";
             // 
@@ -259,7 +259,7 @@
             this.lblCat_agregar.AutoSize = true;
             this.lblCat_agregar.Location = new System.Drawing.Point(11, 56);
             this.lblCat_agregar.Name = "lblCat_agregar";
-            this.lblCat_agregar.Size = new System.Drawing.Size(72, 19);
+            this.lblCat_agregar.Size = new System.Drawing.Size(74, 20);
             this.lblCat_agregar.TabIndex = 18;
             this.lblCat_agregar.Text = "Categorias";
             // 
@@ -271,10 +271,11 @@
             this.btnAgregar_agregar.TabIndex = 29;
             this.btnAgregar_agregar.Text = "Agregar";
             this.btnAgregar_agregar.UseSelectable = true;
+            this.btnAgregar_agregar.Click += new System.EventHandler(this.btnAgregar_agregar_Click);
             // 
             // frmAgregar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(402, 251);
@@ -292,10 +293,11 @@
             this.Controls.Add(this.lblNombre_agregar);
             this.Controls.Add(this.lblCat_agregar);
             this.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAgregar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar producto";
+            this.Load += new System.EventHandler(this.frmAgregar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

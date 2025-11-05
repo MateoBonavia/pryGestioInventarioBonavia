@@ -21,6 +21,7 @@ namespace pryGestioInventarioBonavia
         private void frmMain_Load(object sender, EventArgs e)
         {
             connection.ConnectDb();
+            connection.fillCombo(cboCat_gestion);
             changeTxt(false);
         }
 
@@ -47,6 +48,21 @@ namespace pryGestioInventarioBonavia
             {
                 changeTxt(true);
             }
+
+            if (rdbCodigo_gestion.Checked)
+            {
+                connection.searchCode(
+                    txtBuscar_gestion.Text,
+                    txtCodigo_gestion,
+                    cboCat_gestion,
+                    txtNombre_gestion,
+                    txtPrecio_gestion,
+                    txtStock_gestion,
+                    txtDesc_gestion
+                    );
+            }
+            if (rdbNombre_gestion.Checked) { }
+            if (rdbCat_gestion.Checked) { }
         }
     }
 }
